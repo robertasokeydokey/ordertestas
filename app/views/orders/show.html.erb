@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @order.user_id %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @order.service_id %>
+</p>
+
+<p>
+  <strong>Offer:</strong>
+  <%= @order.offer_id %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @order.discount_id %>
+</p>
+
+<p>
+  <strong>Discount:</strong>
+  <%= @order.discount %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @order.price %>
+</p>
+
+<p>
+  <strong>Cart:</strong>
+  <%= @order.cart_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.quantity %>
+</p>
+
+<p>
+  <strong>Valid from:</strong>
+  <%= @order.valid_from %>
+</p>
+
+<p>
+  <strong>Valid until:</strong>
+  <%= @order.valid_until %>
+</p>
+
+<p>
+  <strong>For friend:</strong>
+  <%= @order.for_friend %>
+</p>
+
+<p>
+  <strong>Friends name:</strong>
+  <%= @order.friends_name %>
+</p>
+
+<p>
+  <strong>Gift sender name:</strong>
+  <%= @order.gift_sender_name %>
+</p>
+
+<p>
+  <strong>Delivery method:</strong>
+  <%= @order.delivery_method %>
+</p>
+
+<p>
+  <strong>Friends email:</strong>
+  <%= @order.friends_email %>
+</p>
+
+<p>
+  <strong>Gift message:</strong>
+  <%= @order.gift_message %>
+</p>
+
+<%= link_to 'Edit', edit_order_path(@order) %> |
+<%= link_to 'Back', orders_path %>

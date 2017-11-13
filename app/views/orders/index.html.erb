@@ -1,0 +1,140 @@
+
+
+<style>
+/*https://bootsnipp.com/snippets/featured/responsive-shopping-cart
+*/.table>tbody>tr>td, .table>tfoot>tr>td{
+    vertical-align: middle;
+}
+@media screen and (max-width: 600px) {
+    table#cart tbody td .form-control{
+		width:20%;
+		display: inline !important;
+	}
+/*	.actions .btn{
+		width:36%;
+		margin:1.5em 0;
+	}*/
+	
+/*	.actions .btn-info{
+		float:left;
+	}
+	.actions .btn-danger{
+		float:right;
+	}*/
+	
+	table#cart thead { display: none; }
+	table#cart tbody td { display: block; padding: .6rem; min-width:320px;}
+	table#cart tbody tr td:first-child { background: #fff; /*color: #fff;*/ }
+	table#cart tbody td:before {
+		content: attr(data-th); font-weight: bold;
+		display: inline-block; width: 8rem;
+	}
+	
+	
+	
+	table#cart tfoot td{display:block; }
+	table#cart tfoot td .btn{display:block;}
+	
+}
+</style>
+<div class="container">
+  <div class="page-header">
+    <h1>Krepšelis</h1>
+  </div>
+<% if @orders.empty? %>
+<% else %>  
+	<table id="cart" class="table table-hover table-condensed">
+    				<thead>
+						<tr>
+							<th style="width:20%"></th>
+							<th style="width:22%">Kaina</th>
+							<th style="width:32%">Kiekis</th>
+							<th style="width:24%">Suma</th>
+							<th style="width:2%"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<% @orders.each do |order| %>					
+						<tr>
+							<td data-th="">
+								<div class="row">
+									<div class="col-sm-2">
+									<%= order.service_id %> 
+									</div>
+									<div class="col-sm-10">
+										<h4 class="nomargin"><%= order.service_id %></h4>
+									</div>
+								</div>
+							</td>
+							<td data-th="Kaina" style="font-size: 16px;"><%= order.price %>  €</td>
+							<td data-th="Kiekis">
+                <div class="quantity"style="width: 180px">
+                  <button class="minus-btn" type="button" name="button" style="height: 34px;">
+                    <img src="minus.png" alt="" />
+                  </button>
+                  <input type="text" style="font-size: 16px; width:33%; display: inline;" value="<%= order.quantity %>" class="form-control">
+                  <button class="plus-btn" type="button" name="button" style="height: 34px;">
+                    <img src="plus.png" alt="" />
+                  </button>          
+                </div>                
+							</td>
+							<td data-th="Suma" style="font-size: 16px;"><%= order.price * order.quantity %>  €</td>
+							<td class="actions" data-th="">
+								<%= link_to '<i class="fa fa-trash-o"></i>'.html_safe, order, method: :delete, data: { confirm: 'Tikrai norite išimti iš krepšelio?' }, class: "btn btn-danger btn-sm" %>								
+							</td>
+						</tr>
+						<% end %>						
+					</tbody>
+				</table>
+<% end %>				
+</div>
+
+
+
+
+<br>
+
+<%= link_to 'New Order', new_order_path %>
+
+
+
+
+
+<script>
+
+$('.minus-btn').click(function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());//currentVal
+  
+    if (value > 2) {
+        value = value - 1;
+    } else {
+        value = 1;
+    }
+ 
+  $input.val(value);
+ 
+});
+ 
+$('.plus-btn').click(function(e) {
+    e.preventDefault();
+    var $this = $(this);
+    var $input = $this.closest('div').find('input');
+    var value = parseInt($input.val());
+ 
+    if (value < 99) {
+        value = value + 1;
+    } else {
+        value =99;
+    }
+ 
+    $input.val(value);
+});
+</script>
+
+
+
+
+

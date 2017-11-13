@@ -1,0 +1,2 @@
+json.extract! order, :id, :user_id, :service_id, :offer_id, :discount_id, :discount, :price, :cart_id, :quantity, :valid_from, :valid_until, :for_friend, :friends_name, :gift_sender_name, :delivery_method, :friends_email, :gift_message, :created_at, :updated_at
+json.url order_url(order, format: :json)

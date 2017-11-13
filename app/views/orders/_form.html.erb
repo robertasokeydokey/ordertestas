@@ -1,0 +1,81 @@
+<%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+      <ul>
+      <% @order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :service_id %><br>
+    <%= f.number_field :service_id %>
+  </div>
+  <div class="field">
+    <%= f.label :offer_id %><br>
+    <%= f.number_field :offer_id %>
+  </div>
+  <div class="field">
+    <%= f.label :discount_id %><br>
+    <%= f.number_field :discount_id %>
+  </div>
+  <div class="field">
+    <%= f.label :discount %><br>
+    <%= f.text_field :discount %>
+  </div>
+  <div class="field">
+    <%= f.label :price %><br>
+    <%= f.text_field :price %>
+  </div>
+  <div class="field">
+    <%= f.label :cart_id %><br>
+    <%= f.number_field :cart_id %>
+  </div>
+  <div class="field">
+    <%= f.label :quantity %><br>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_from %><br>
+    <%= f.datetime_select :valid_from %>
+  </div>
+  <div class="field">
+    <%= f.label :valid_until %><br>
+    <%= f.datetime_select :valid_until %>
+  </div>
+  <div class="field">
+    <%= f.label :for_friend %><br>
+    <%= f.check_box :for_friend %>
+  </div>
+  <div class="field">
+    <%= f.label :friends_name %><br>
+    <%= f.text_field :friends_name %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_sender_name %><br>
+    <%= f.text_field :gift_sender_name %>
+  </div>
+  <div class="field">
+    <%= f.label :delivery_method %><br>
+    <%= f.number_field :delivery_method %>
+  </div>
+  <div class="field">
+    <%= f.label :friends_email %><br>
+    <%= f.text_field :friends_email %>
+  </div>
+  <div class="field">
+    <%= f.label :gift_message %><br>
+    <%= f.text_area :gift_message %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
