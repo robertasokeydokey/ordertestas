@@ -41,7 +41,8 @@
   <div class="page-header">
     <h1>Krepšelis</h1>
   </div>
-<% if @orders.empty? %>
+<% if Order.all.empty? %>
+-
 <% else %>  
 	<table id="cart" class="table table-hover table-condensed">
     				<thead>
